@@ -6,7 +6,7 @@ Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code 
 
 ## Motor
 
-[![CAN BUS Shield](https://statics3.seeedstudio.com/seeed/file/2017-08/bazaar528529_img_2653a.jpg)]
+![MS3008 Motor](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/MS3008_Motor.jpg)
 
 
 
