@@ -1,4 +1,11 @@
-reCamera Gimbal V1.0
+# reCamera Gimbal Programmable Development Kit V1.0
+
+## Introduction
+
+Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code to debug the gimbal motor's operation and status output. Additionally, we offer program entry points to drive the gimbal motor using RS485, enabling precise control and functionality.
+
+## 
+
 
 ----
 
