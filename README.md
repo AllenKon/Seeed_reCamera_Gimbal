@@ -10,7 +10,11 @@ MS3008 Motor          |  MS3008 Motor Parameters
 :-------------------------:|:-------------------------:
 ![MS3008 Motor](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/MS3008_Motor.jpg)  |  ![MS3008 Motor Parameters](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/MS3008_Parameters.png)
 
+## USB-RS485 Analyzer
 
+If you want a RS485 Bus Analyzer to debug your RS485 Bus, this [USB-RS485 Analyzer](https://www.seeedstudio.com/USB-TO-RS232--RS485--TTL-Industrial-Isolated-Converter-p-3231.html) is recommended.
+
+![MS3008 Motor](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/h/t/httpsstatics3.seeedstudio.comseeedfile2018-12bazaar1004130_usbtors232485ttl01.jpg)
 
 ----
 
