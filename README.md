@@ -47,9 +47,11 @@ If you want a RS485 Bus Analyzer to debug your RS485 Bus, this [USB-RS485 Analyz
 
 Up to 32 motors can be connected on the same bus (depending on bus load). To prevent bus conflicts, each motor must be assigned a unique ID ranging from 1 to 32.
 
-
+![Connect of Devices](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Connect.png)
 
 ID changes can be made using MS_Motor/LK motor tool V2.35.exe. Connect the PC (Windows) to the USB-RS485 module, with A, B, and GND of the USB-RS485 module connected to A, B, and V- of the motor. Additionally, connect the positive and negative terminals of a 12V power supply to V+ and V- of the motor to enable parameter changes. For further instructions on using LK motor tool V2.35.exe, refer to MS_Motor/Upper_monitor_motor_debuging_instruction.pdf.
+
+
 
 The upper computer sends this command to control the motor position (multi-turn angle), the control value angleControl is of type int64_t, corresponding to the actual position of 0.01degree/LSB. The control value angleControl is of type int64_t, which corresponds to the actual position of 0.01degree/LSB, i.e. 36000 represents 360°, and the direction of rotation of the motor is determined by the difference between the target position and the current position.
 
