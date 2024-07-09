@@ -179,7 +179,7 @@ int main() {
         for (size_t i = 0; i < motorIDs.size(); ++i) {
             uint8_t motorID = motorIDs[i];
             uint64_t pos = static_cast<uint64_t>(angles[i] * 100);
-            uint8_t hexArray[14] = {0x3E, 0xA3, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+            uint8_t hexArray[14] = {0x3E, 0xA3, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; //Refer to MS_Motor_RS485_Instruction if the command needs to be changed.
             hexArray[2] = motorID;
             hexArray[4] = calculateChecksum(hexArray, 0, 3);
 
