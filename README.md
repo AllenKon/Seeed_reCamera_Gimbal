@@ -18,6 +18,39 @@ If you want a RS485 Bus Analyzer to debug your RS485 Bus, this [USB-RS485 Analyz
 
 ![MS3008 Motor](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/h/t/httpsstatics3.seeedstudio.comseeedfile2018-12bazaar1004130_usbtors232485ttl01.jpg)
 
+## Upper computer-Motor Command
+
+### RS485 Bus Parameters
+
+**Baud Rate (Normal Mode, Single Motor Command):**
+- 9600bps
+- 19200bps
+- 38400bps
+- 57600bps
+- 115200bps (default)
+- 230400bps
+- 460800bps
+- 1Mbps
+- 2Mbps
+- 4Mbps
+
+**Baud Rate (Broadcast Mode, Multi-Motor Command):**
+- 1Mbps
+- 2Mbps
+- 4Mbps
+
+**Data Bits:** 8  
+**Parity:** None  
+**Stop Bits:** 1
+
+### Motor ID Set
+
+Up to 32 motors can be connected on the same bus (depending on bus load). To prevent bus conflicts, each motor must be assigned a unique ID ranging from 1 to 32.
+
+
+
+The upper computer sends this command to control the motor position (multi-turn angle), the control value angleControl is of type int64_t, corresponding to the actual position of 0.01degree/LSB. The control value angleControl is of type int64_t, which corresponds to the actual position of 0.01degree/LSB, i.e. 36000 represents 360°, and the direction of rotation of the motor is determined by the difference between the target position and the current position.
+
 ----
 
 This software is written by [Seeed Technology Inc.](http://www.seeed.cc) and is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt/LICENSE for the details of MIT license.<br>
