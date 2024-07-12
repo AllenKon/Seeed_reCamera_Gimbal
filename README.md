@@ -59,10 +59,15 @@ Only two motors are used in this head, so it is sufficient to set the IDs of the
 
 ### Hardware Overview
 
-
-
 ![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Hardware_Overview.png)
 
+The actual internal wiring diagram is as follows.
+
+![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Hardware_Wiring_Overview.png)
+
+You can use the Debugging Port connections to control the motor and communicate with the reCamera via the host computer. Alternatively, you can control the motor directly through the reCamera.
+
+![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Upper_Wiring_Overview.png)
 
 ----
 
