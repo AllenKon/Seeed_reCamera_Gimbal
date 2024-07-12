@@ -10,7 +10,7 @@ Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code 
   <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Rear_View.jpg" width="300" />
 </p>
 
-## Gimbal Structure
+## Gimbal Structure & Assembly
 
 You can download the STL file of this gimbal for 3D printing and assemble it. (Url: https://makerworld.com/zh/models/536713)
 
@@ -73,7 +73,7 @@ You can use the Debugging Port connections to control the motor and communicate 
 
 ## Instructions for using
 
-
+Waiting to write.
 
 
 ----
