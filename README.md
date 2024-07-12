@@ -82,7 +82,7 @@ Linux
 Open Deploy_Win.cpp and change the serial port name on line 160. The serial port name can be obtained by terminal.
 
 ```
-ls /dev/tty*
+ls /dev/ttyUSB*
 ```
 
 ```
@@ -91,12 +91,13 @@ g++ Deploy_Linux.cpp -o Deploy_Linux
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF2.jpg" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF2.png" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.png" width="300" />
 </p>
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.jpg" width="300" />
-</p>
+### Deploy in reCamera
+
+This step requires [TinyCC](https://community.milkv.io/t/tinycc-milkv-duo-c/271) to be installed on reCamera.
 
 
 
