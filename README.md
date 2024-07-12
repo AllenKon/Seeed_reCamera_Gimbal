@@ -12,6 +12,9 @@ Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code 
 
 You can download the STL file of this gimbal for 3D printing and assemble it. (Url: https://makerworld.com/zh/models/536713) 
 
+### Assembly
+
+None.(Waiting to write)
 
 
 ## Instructions for using
@@ -46,7 +49,7 @@ You can use the Debugging Port connections to control the motor and communicate 
 
 ## Instructions for using
 
-Waiting to write.
+None.(Waiting to write)
 
 
 ----
