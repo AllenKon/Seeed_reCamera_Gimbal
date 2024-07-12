@@ -6,8 +6,6 @@ Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code 
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Font_View.jpg" width="300" />
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Side_View.jpg" width="300" />
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Rear_View.jpg" width="300" />
 </p>
 
 ## Gimbal Structure & Assembly
