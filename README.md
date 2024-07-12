@@ -43,13 +43,21 @@ The actual internal wiring diagram is as follows.
 
 ![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Hardware_Wiring_Overview.png)
 
-You can use the Debugging Port connections to control the motor and communicate with the reCamera via the host computer. Alternatively, you can control the motor directly through the reCamera.
+You can use the Debugging Port connections to control the motor and communicate with the reCamera via the upper monitor. Alternatively, you can control the motor directly through the reCamera.
 
 ![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Upper_Wiring_Overview.png)
 
 ## Instructions for using
 
-None.(Waiting to write)
+### Upper Monitor Control
+
+#### Python
+
+Open a terminal in the root directory while making sure Python is installed.
+
+```
+python Deploy_Python.py
+```
 
 
 ----
