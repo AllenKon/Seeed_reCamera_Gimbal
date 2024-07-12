@@ -9,7 +9,6 @@
 #include <sys/select.h>
 #include <sys/time.h>
 
-int calculateChecksum(uint8_t [], int, int);
 int calculateChecksum(uint8_t byteArray[], int start, int end) {
     int sum = 0;
     for (int i = start; i <= end; i++) {
@@ -74,6 +73,8 @@ void closeSerialPort(int serialPort) {
 }
 
 int sendData(int serialPort, const uint8_t* data, size_t length) {
+    // Flush the output buffer before sending data
+    tcflush(serialPort, TCOFLUSH);
     ssize_t bytesWritten = write(serialPort, data, length);
     if (bytesWritten == -1) {
         fprintf(stderr, "Error writing to serial port\n");
@@ -83,6 +84,8 @@ int sendData(int serialPort, const uint8_t* data, size_t length) {
 }
 
 int receiveData(int serialPort, char* buffer, int length, int timeout) {
+    // Flush the input buffer before receiving data
+    tcflush(serialPort, TCIFLUSH);
     fd_set readfds;
     struct timeval tv;
 
@@ -154,9 +157,9 @@ int main() {
     int serialPort;
     double angles[17];
     int angleCount = 0;
-    const char* portName = "/dev/ttyUSB0";
+    const char* portName = "/dev/ttyS0";
     char input[256];
-    
+
     while (1) {
         if (isSerialPortOpen(&serialPort, portName)) {
             printf("Serial port %s is open.\n", portName);
@@ -166,8 +169,9 @@ int main() {
         }
         sleep(2);  // 每隔2秒检测一次
     }
-    
+
     printf("请输入要操控的电机ID(使用空格隔开,范围0-16): ");
+    fflush(stdout);
     fgets(input, sizeof(input), stdin);
     char* token = strtok(input, " ");
     while (token != NULL) {
@@ -185,6 +189,7 @@ int main() {
     while (1) {
         angleCount = 0;
         printf("输入旋转角度(0-360°, 使用空格隔开, 对应不同的电机ID): ");
+        fflush(stdout);
         fgets(input, sizeof(input), stdin);
         token = strtok(input, " ");
         int validInput = 1;
@@ -222,11 +227,12 @@ int main() {
             hexArray[13] = calculateChecksum(hexArray, 5, 12);
 
             // 将hexArray整合成连续的字符串
-            char hexString[29];
+            char hexString[30];
             for (int k = 0; k < 14; ++k) {
-                sprintf(&hexString,[k * 2], "%02X", hexArray[k]);
+                sprintf(&hexString[k * 2], "%02X", hexArray[k]);
             }
-            hexString[28] = '\n';  // 添加新行符
+            hexString[28] = '\n';  // 添加换行符
+            hexString[29] = '\0';  // 添加字符串结束符
             printf("Data to send: %s\n", hexString);
 
             // 转换为实际的十六进制字节数组
@@ -234,20 +240,23 @@ int main() {
             size_t dataToSendLen;
             String2Hex(hexString, dataToSend, &dataToSendLen);
 
-            if (sendData(serialPort, dataToSend, dataToSendLen)) {
-                printf("Data sent successfully to motor ID %d.\n", motorID);
-                if (receiveData(serialPort, buffer, sizeof(buffer) - 1, 500)) { // 超时时间500ms
-                    // 将接收到的数据转换为字符串并输出
-                    printf("Received data: %s\n", buffer);
+            if (isSerialPortOpen(&serialPort, portName)) {
+                if (sendData(serialPort, dataToSend, dataToSendLen)) {
+                    printf("Data sent successfully to motor ID %d.\n", motorID);
+                    if (receiveData(serialPort, buffer, sizeof(buffer) - 1, 500)) { // 超时时间500ms
+                        // 将接收到的数据转换为字符串并输出
+                        printf("Received data: %s\n", buffer);
+                    } else {
+                        printf("No data received within timeout period.\n");
+                    }
                 } else {
-                    printf("No data received within timeout period.\n");
+                    fprintf(stderr, "Failed to send data to motor ID %d.\n", motorID);
                 }
+                closeSerialPort(serialPort);
             } else {
-                fprintf(stderr, "Failed to send data to motor ID %d.\n", motorID);
+                fprintf(stderr, "Failed to reopen serial port for motor ID %d.\n", motorID);
             }
         }
     }
-
-    closeSerialPort(serialPort);
     return 0;
 }
