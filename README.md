@@ -51,7 +51,9 @@ ID changes can be made using MS_Motor/LK motor tool V2.35.exe. Connect the PC (W
 
 Only two motors are used in this head, so it is sufficient to set the IDs of the two motors to 01 and 02 respectively.
 
-### Motor Command Sent
+### Hardware Overview
+
+
 
 
 
