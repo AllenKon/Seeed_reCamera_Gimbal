@@ -4,6 +4,12 @@
 
 Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code to debug the gimbal motor's operation and status output. We offer program entry points to drive the gimbal motor using RS485, enabling precise control and functionality.
 
+<p float="left">
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Font_View.jpg" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Side_View.jpg" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Rear_View.jpg" width="300" />
+</p>
+
 ## Motor
 
 MS3008 Motor          |  MS3008 Motor Parameters
@@ -55,6 +61,7 @@ Only two motors are used in this head, so it is sufficient to set the IDs of the
 
 
 
+![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Hardware_Overview.png)
 
 
 ----
