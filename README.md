@@ -12,15 +12,11 @@ Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code 
 
 ## Gimbal Structure & Assembly
 
-You can download the STL file of this gimbal for 3D printing and assemble it. (Url: https://makerworld.com/zh/models/536713)
+You can download the STL file of this gimbal for 3D printing and assemble it. (Url: https://makerworld.com/zh/models/536713) 
 
-## Motor
 
-MS3008 Motor          |  MS3008 Motor Parameters
-:-------------------------:|:-------------------------:
-![MS3008 Motor](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/MS3008_Motor.jpg)  |  ![MS3008 Motor Parameters](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/MS3008_Parameters.png)
 
-Featuring a high-performance 32-bit MCU, the MS3008 allows seamless switching between torque, speed, and position control modes. Constructed with high-quality silicon steel sheets and high-temperature-resistant strong magnetic permanent magnets, it offers superior performance. The multi-level flat outer rotor design provides higher torque, making it ideal for space-constrained applications. The brushless structure, combined with high-performance bearings, ensures smoother rotation and longer lifespan. With high-precision, low-temperature-drift alloy resistors for current sampling, it guarantees precise current control. The full N-channel MOSFET three-phase full-bridge drive delivers low internal resistance and high current capacity. It supports RS485 communication for reliable and efficient data transmission.
+## Instructions for using
 
 ### Motor ID Set
 
@@ -30,34 +26,13 @@ ID changes can be made using MS_Motor/LK motor tool V2.35.exe. Connect the PC (W
 
 Only two motors are used in this head, so it is sufficient to set the IDs of the two motors to 01 and 02 respectively.
 
-## USB-RS485 Analyzer
+### USB-RS485 Analyzer
 
 If you want a RS485 Bus Analyzer to debug your RS485 Bus, this [USB-RS485 Analyzer](https://www.seeedstudio.com/USB-TO-RS232--RS485--TTL-Industrial-Isolated-Converter-p-3231.html) is recommended.
 
 ![MS3008 Motor](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/h/t/httpsstatics3.seeedstudio.comseeedfile2018-12bazaar1004130_usbtors232485ttl01.jpg)
 
-### RS485 Bus Parameters
 
-**Baud Rate (Normal Mode, Single Motor Command):**
-- 9600bps
-- 19200bps
-- 38400bps
-- 57600bps
-- 115200bps (default)
-- 230400bps
-- 460800bps
-- 1Mbps
-- 2Mbps
-- 4Mbps
-
-**Baud Rate (Broadcast Mode, Multi-Motor Command):**
-- 1Mbps
-- 2Mbps
-- 4Mbps
-
-**Data Bits:** 8  
-**Parity:** None  
-**Stop Bits:** 1
 
 ## Hardware Overview
 
