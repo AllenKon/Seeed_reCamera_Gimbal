@@ -48,7 +48,7 @@ You can use the Debugging Port connections to control the motor and communicate 
 
 ![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Upper_Wiring_Overview.png)
 
-## Instructions for using
+## Deploy to Upper Monitor/reCamera
 
 ### Upper Monitor Control
 
