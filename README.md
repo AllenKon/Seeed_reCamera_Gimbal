@@ -80,7 +80,7 @@ g++ Deploy_Win.cpp -o Deploy_Win.exe
 
 *Linux*
 
-Open Deploy_Win.cpp and change the serial port name on line 160. The serial port name can be obtained by terminal.
+Open Deploy_Linux.cpp and change the serial port name on line 160. The serial port name can be obtained by terminal.
 
 ```
 ls /dev/ttyUSB*
