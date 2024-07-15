@@ -108,7 +108,7 @@ scp ./Deploy_Linux.c root@192.168.42.1:~/
 ```
 ssh root@192.168.42.1
 ```
-The serial port name can be obtained by terminal.
+The serial port name can be obtained by terminal. It is usually ttyS0.
 
 ```
 ls /dev/ttyS*
@@ -119,6 +119,10 @@ Open Deploy_Linux.c and change the serial port name on line 160.
 ```
 vi ./Deploy_Linux.c
 ```
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF4.png" width="500" />
+</p>
 
 Compile Deploy_Linux.c and run it.
 
