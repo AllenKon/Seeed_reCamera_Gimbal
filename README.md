@@ -69,7 +69,7 @@ Then just enter the angle (0-360 degrees) for both motors.
 
 Make sure your system ([Win](https://cloud.tencent.com/developer/article/1500352) or Linux) has g++ installed, open a terminal in the root directory.
 
-Win
+*Win*
 
 Open Deploy_Win.cpp and change the serial port name on line 125. The serial port name can be obtained by opening the Device Manager.
 
@@ -77,7 +77,7 @@ Open Deploy_Win.cpp and change the serial port name on line 125. The serial port
 g++ Deploy_Win.cpp -o Deploy_Win.exe
 ```
 
-Linux
+*Linux*
 
 Open Deploy_Win.cpp and change the serial port name on line 160. The serial port name can be obtained by terminal.
 
