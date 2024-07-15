@@ -97,9 +97,42 @@ g++ Deploy_Linux.cpp -o Deploy_Linux
 
 ### Deploy in reCamera
 
-This step requires [TinyCC](https://community.milkv.io/t/tinycc-milkv-duo-c/271) to be installed on reCamera.
+This step requires [TinyCC](https://community.milkv.io/t/tinycc-milkv-duo-c/271) to be installed on reCamera. 
+
+Open a terminal in the directory where Deploy_Linux.c is stored.
+
+```
+scp ./Deploy_Linux.c root@192.168.42.1:~/
+```
+
+```
+ssh root@192.168.42.1
+```
+The serial port name can be obtained by terminal.
+
+```
+ls /dev/ttyS*
+```
+
+Open Deploy_Linux.c and change the serial port name on line 160. 
+
+```
+vi ./Deploy_Linux.c
+```
+
+Compile Deploy_Linux.c and run it.
+
+```
+cd ~/
+tcc -o test test.c
+./test
+```
 
 
+<p float="left">
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF2.png" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.png" width="300" />
+</p>
 
 ----
 
