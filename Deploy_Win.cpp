@@ -122,7 +122,7 @@ int main() {
     vector<uint8_t> motorIDs;
     HANDLE hSerial;
     vector<double> angles;
-    const char* portName = "COM8";
+    const char* portName = "COM5";
     
     while (true) {
         if (isSerialPortOpen(hSerial, portName)) {
