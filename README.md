@@ -5,7 +5,7 @@
 Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code to debug the gimbal motor's operation and status output. We offer program entry points to drive the gimbal motor using RS485, enabling precise control and functionality.
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/reCamera_Font_View.jpg" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/reCamera_Font_View.jpg" width="300" />
 </p>
 
 ## Gimbal Structure & Assembly
@@ -21,7 +21,7 @@ None.(Waiting to write)
 
 ### Motor ID Set
 
-![Connect of Devices](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Connect.png)
+![Connect of Devices](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Connect.png)
 
 ID changes can be made using MS_Motor/LK motor tool V2.35.exe. Connect the PC (Windows) to the USB-RS485 module, with A, B, and GND of the USB-RS485 module connected to A, B, and V- of the motor. Connect the positive and negative terminals of a 12V power supply to V+ and V- of the motor to enable parameter changes. For further instructions on using LK motor tool V2.35.exe, refer to MS_Motor/Upper_monitor_motor_debuging_instruction.pdf. 
 
@@ -38,15 +38,15 @@ If you want a RS485 Bus Analyzer to debug your RS485 Bus, this [USB-RS485 Analyz
 
 ## Hardware Overview
 
-![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Hardware_Overview.png)
+![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Hardware_Overview.png)
 
 The actual internal wiring diagram is as follows.
 
-![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Hardware_Wiring_Overview.png)
+![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Hardware_Wiring_Overview.png)
 
 You can use the Debugging Port connections to control the motor and communicate with the reCamera via the upper monitor. Alternatively, you can control the motor directly through the reCamera.
 
-![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Upper_Wiring_Overview.png)
+![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Upper_Wiring_Overview.png)
 
 ## Deploy in reCamera
 
@@ -74,7 +74,7 @@ vi ./Deploy_Linux.c
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF4.png" width="500" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF4.png" width="500" />
 </p>
 
 Compile Deploy_Linux.c and run it.
@@ -87,8 +87,8 @@ tcc -o test test.c
 
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF2.png" width="300" />
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.png" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF2.png" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF3.png" width="300" />
 </p>
 
 
@@ -108,7 +108,7 @@ python Deploy_Python.py
 Then just enter the angle (0-360 degrees) for both motors.
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF1.jpg" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF1.jpg" width="300" />
 </p>
 
 #### C++
@@ -137,8 +137,8 @@ g++ Deploy_Linux.cpp -o Deploy_Linux
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF2.png" width="300" />
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.png" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF2.png" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF3.png" width="300" />
 </p>
 
 
