@@ -48,7 +48,52 @@ You can use the Debugging Port connections to control the motor and communicate 
 
 ![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/Upper_Wiring_Overview.png)
 
+## Deploy in reCamera
+
+This step requires [TinyCC](https://community.milkv.io/t/tinycc-milkv-duo-c/271) to be installed on reCamera. 
+
+Open a terminal in the directory where Deploy_Linux.c is stored.
+
+```
+scp ./Deploy_Linux.c root@192.168.42.1:~/
+```
+
+```
+ssh root@192.168.42.1
+```
+The serial port name can be obtained by terminal. It is usually ttyS0.
+
+```
+ls /dev/ttyS*
+```
+
+Open Deploy_Linux.c and change the serial port name on line 160. 
+
+```
+vi ./Deploy_Linux.c
+```
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF4.png" width="500" />
+</p>
+
+Compile Deploy_Linux.c and run it.
+
+```
+cd ~/
+tcc -o test test.c
+./test
+```
+
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF2.png" width="300" />
+  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.png" width="300" />
+</p>
+
+
 ## Deploy to Upper Monitor/reCamera
+
 
 ### Upper Monitor Control
 
@@ -96,48 +141,6 @@ g++ Deploy_Linux.cpp -o Deploy_Linux
   <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.png" width="300" />
 </p>
 
-### Deploy in reCamera
-
-This step requires [TinyCC](https://community.milkv.io/t/tinycc-milkv-duo-c/271) to be installed on reCamera. 
-
-Open a terminal in the directory where Deploy_Linux.c is stored.
-
-```
-scp ./Deploy_Linux.c root@192.168.42.1:~/
-```
-
-```
-ssh root@192.168.42.1
-```
-The serial port name can be obtained by terminal. It is usually ttyS0.
-
-```
-ls /dev/ttyS*
-```
-
-Open Deploy_Linux.c and change the serial port name on line 160. 
-
-```
-vi ./Deploy_Linux.c
-```
-
-<p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF4.png" width="500" />
-</p>
-
-Compile Deploy_Linux.c and run it.
-
-```
-cd ~/
-tcc -o test test.c
-./test
-```
-
-
-<p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF2.png" width="300" />
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/MS_Motor/Pic/TF3.png" width="300" />
-</p>
 
 ----
 
