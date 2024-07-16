@@ -8,6 +8,12 @@ Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code 
   <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/reCamera_Font_View.jpg" width="300" />
 </p>
 
+## Install
+
+```
+pip install -e git+https://github.com/AllenKon/Seeed_reCamera_Gimbal.git#egg=reCamera_Deploy --no-deps
+```
+
 ## Gimbal Structure & Assembly
 
 You can download the STL file of this gimbal for 3D printing and assemble it. (Url: https://makerworld.com/zh/models/536713) 
