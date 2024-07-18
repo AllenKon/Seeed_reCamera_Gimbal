@@ -4,9 +4,7 @@
 
 Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code to debug the gimbal motor's operation and status output. We offer program entry points to drive the gimbal motor using RS485, enabling precise control and functionality.
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/reCamera_Font_View.jpg" width="300" />
-</p>
+![reCamera](https://github.com/AllenKon/Seeed_reCamera_Gimbal/blob/main/reCamera_Deploy/MS_Motor/Pic/recamera(1).jpg)
 
 ## Install
 
