@@ -96,7 +96,7 @@ tcc -o test test.c
 </p>
 
 
-## Deploy to Upper Monitor/reCamera
+## Deploy to Upper Monitor
 
 
 ### Upper Monitor Control
