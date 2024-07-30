@@ -85,7 +85,7 @@ Compile Deploy_Linux.c and run it.
 
 ```
 cd ~/
-tcc -o test test.c
+tcc -o test Deploy_Linux.c
 ./test
 ```
 
