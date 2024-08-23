@@ -1,23 +1,19 @@
 #include <thread>
 #include <chrono>
-#include <vector>
-#include <sstream>
-#include <iostream>
-#include <iomanip>
-#include <windows.h>
+#include "Deploy.h"
 
 using namespace std;
 
 int calculateChecksum(uint8_t [], int, int);
 
-// Calculate the checksum
+//Calculate the checksum
 int calculateChecksum(uint8_t byteArray[], int start, int end) {
     int sum = 0;
     for (int i = start; i <= end; i++) {
         sum += byteArray[i];
     }
     while (sum > 0xffff)
-        sum = (sum & 0xffff) + (sum >> 16);
+        sum = (sum & 0xffff)+(sum>>16);
     return sum;
 }
 
@@ -42,8 +38,8 @@ bool isSerialPortOpen(HANDLE& hSerial, const char* portName) {
 
     dcbSerialParams.BaudRate = CBR_115200;  // Set the Baud rate to 115200
     dcbSerialParams.ByteSize = 8;   // Set the data byte size to 8 bits
-    dcbSerialParams.StopBits = ONESTOPBIT;  // Set the number of stop bits to 1
-    dcbSerialParams.Parity = NOPARITY;  // Set parity to none
+    dcbSerialParams.StopBits = ONESTOPBIT;  // Set the number of stop bits to 1, ONESTOPBIT (1), ONE5STOPBITS (1.5), or TWOSTOPBITS (2)
+    dcbSerialParams.Parity = NOPARITY;  // Set parity to none, NOPARITY (0), ODDPARITY (1), EVENPARITY (2), MARKPARITY (3), or SPACEPARITY (4)
     if (!SetCommState(hSerial, &dcbSerialParams)) {
         cerr << "Error setting serial port state" << endl;
         CloseHandle(hSerial);
@@ -126,10 +122,8 @@ int main() {
     vector<uint8_t> motorIDs;
     HANDLE hSerial;
     vector<double> angles;
-    const char* portName = "\\\\.\\COM10";
-
-    vector<uint16_t> spds = {120, 120};
-
+    const char* portName = "COM10";
+    
     while (true) {
         if (isSerialPortOpen(hSerial, portName)) {
             cout << "Serial port " << portName << " is open." << endl;
@@ -139,7 +133,7 @@ int main() {
         }
         this_thread::sleep_for(chrono::seconds(2));  // 每隔2秒检测一次
     }
-
+    
     cout << "Please enter the IDs of the motors to be operated (separated by spaces, range 0-16): ";
     string input;
     getline(cin, input);
@@ -184,59 +178,43 @@ int main() {
 
         for (size_t i = 0; i < motorIDs.size(); ++i) {
             uint8_t motorID = motorIDs[i];
-            uint16_t spd = spds[i];
-            uint32_t pos = static_cast<uint32_t>(angles[i] * 100);
-            // 你的CAN报文ID和数据帧
-            uint16_t canID = 0x140; // 11位ID
-            uint16_t canID_send; // 11位ID
-            uint8_t canData[9] = {0xA4, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x55};
-            canID_send = canID + motorID;
-            for (int j = 0; j < 2; ++j) {
-                canData[2 + j] = *((uint8_t*)(&spd) + j);
-            }
-            for (int j = 0; j < 4; ++j) {
-                canData[4 + j] = *((uint8_t*)(&pos) + j);
-            }
-            // 把ID和数据帧组合在一起
-            uint8_t canFrame[13] = {0xAA, 0xC8, 0x00, 0x00};
+            uint64_t pos = static_cast<uint64_t>(angles[i] * 100);
+            uint8_t hexArray[14] = {0x3E, 0xA3, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; //Refer to MS_Motor_RS485_Instruction if the command needs to be changed.
+            hexArray[2] = motorID;
+            hexArray[4] = calculateChecksum(hexArray, 0, 3);
 
-            // 将11位的canID拆分成2个字节并存储在canFrame的前2个字节中
-            canFrame[3] = (canID_send >> 8) & 0xFF;  // 前3位
-            canFrame[2] = (canID_send & 0xFF);  // 后8位
+            for (int j = 0; j < 8; ++j) {
+                hexArray[5 + j] = *((uint8_t*)(&pos) + j);
+            }
+            hexArray[13] = calculateChecksum(hexArray, 5, 12);
 
-            // 将canData复制到canFrame的后8个字节中
-            memcpy(&canFrame[4], canData, 9);
             // 将hexArray整合成连续的字符串
             stringstream hexStringStream;
-            for (int k = 0; k < 13; ++k) {
-                hexStringStream << uppercase << hex << setw(2) << setfill('0') << (int)canFrame[k];
+            for (int k = 0; k < 14; ++k) {
+                hexStringStream << uppercase << hex << setw(2) << setfill('0') << (int)hexArray[k];
             }
             hexStringStream << '\n';  // 添加新行符
             string hexString = hexStringStream.str();
             cout << "Data to send: " << hexString << endl;
-            
-            //转换为实际的十六进制字节数组
+
+            // 转换为实际的十六进制字节数组
             vector<uint8_t> dataToSend;
             StringToHex(hexString, dataToSend);
 
             if (sendData(hSerial, dataToSend.data(), dataToSend.size())) {
                 cout << "Data sent successfully to motor ID " << (int)motorID << "." << endl;
-                if (receiveData(hSerial, buffer, sizeof(buffer) - 1, 500)) { 
-                    // 将接收到的数据转换为十六进制并输出
-                    stringstream ss;
-                    ss << "Received data: ";
-                    for (size_t j = 0; j < strlen(buffer); ++j) {
-                        ss << hex << setw(2) << setfill('0') << (int)(unsigned char)buffer[j] << " ";
-                    }
-                    cout << ss.str() << endl;
+                if (receiveData(hSerial, buffer, sizeof(buffer) - 1, 500)) { // 超时时间500ms
+                    // 将接收到的数据转换为字符串并输出
+                    cout << "Received data: " << buffer << endl;
                 } else {
                     cout << "No data received within timeout period." << endl;
                 }
             } else {
-                cout << "Failed to send data to motor ID " << (int)motorID << "." << endl;
+                cerr << "Failed to send data to motor ID " << (int)motorID << "." << endl;
             }
         }
     }
-    CloseHandle(hSerial);
+
+    closeSerialPort(hSerial);
     return 0;
 }
