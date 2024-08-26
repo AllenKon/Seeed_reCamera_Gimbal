@@ -4,7 +4,7 @@
 
 Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code to debug the gimbal motor's operation and status output. We offer program entry points to drive the gimbal motor using RS485 or CAN, enabling precise control and functionality.
 
-![reCamera](static\reCamera_Gimbal.jpg)
+![reCamera](static/reCamera_Gimbal.jpg)
 
 ## Gimbal STL
 
@@ -14,7 +14,7 @@ You can download the STL file of this gimbal for 3D printing and assemble it. (U
 
 ### Motor ID Set
 
-![Connect of Devices](static\Connect.png)
+![Connect of Devices](static/Connect.png)
 
 ID changes can be made using MS_Motor/LK motor tool V2.35.exe. Connect the PC (Windows) to the USB-RS485 module, with A, B, and GND of the USB-RS485 module connected to A, B, and V- of the motor. Connect the positive and negative terminals of a 12V power supply to V+ and V- of the motor to enable parameter changes. For further instructions on using LK motor tool V2.35.exe, refer to MS_Motor/Upper_monitor_motor_debuging_instruction.pdf. 
 
@@ -33,7 +33,7 @@ If you want a RS485 Bus Analyzer to debug your RS485 Bus, this [USB-RS485 Analyz
 
 To enable the reCamera to drive the gimbal motor, the reCamera's base board needs to be replaced to [B4_Gyro](https://github.com/Seeed-Studio/OSHW-reCamera-Series) to enable CAN communication.
 
-![B4_Gyro_Overview](static\B4_Gyro_overview.png)
+![B4_Gyro_Overview](static/B4_Gyro_overview.png)
 
 You can use the Debugging Port connections to control the motor and communicate with the reCamera via the upper monitor. Alternatively, you can control the motor directly through the reCamera.
 
@@ -68,7 +68,7 @@ vi ./Deploy_Linux_CAN_Final.c
 ```
 
 <p float="left">
-  <img src="static\TF4.png" width="500" />
+  <img src="static/TF4.png" width="500" />
 </p>
 
 Compile Deploy_Linux_CAN_Final and run it.
@@ -81,8 +81,8 @@ tcc -o test Deploy_Linux.c
 
 
 <p float="left">
-  <img src="static\TF2.png" width="300" />
-  <img src="static\TF3.png" width="300" />
+  <img src="static/TF2.png" width="300" />
+  <img src="static/TF3.png" width="300" />
 </p>
 
 
@@ -102,7 +102,7 @@ python Deploy_Python.py
 Then just enter the angle (0-360 degrees) for both motors.
 
 <p float="left">
-  <img src="static\TF1.jpg" width="300" />
+  <img src="static/TF1.jpg" width="300" />
 </p>
 
 #### C++
@@ -131,8 +131,8 @@ g++ Deploy_Linux.cpp -o Deploy_Linux
 ```
 
 <p float="left">
-  <img src="static\TF2.png" width="300" />
-  <img src="static\TF3.png" width="300" />
+  <img src="static/TF2.png" width="300" />
+  <img src="static/TF3.png" width="300" />
 </p>
 
 
