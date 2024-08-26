@@ -42,6 +42,16 @@ You can use the Debugging Port connections to control the motor and communicate 
 It is recommended to use **Ubuntu 20.04** to configure this gimbal, as it will be needed for the cross-compilation part. If you don't have Ubuntu 20.04, you can configure [**TinyCC**](https://community.milkv.io/t/tinycc-milkv-duo-c/271) on reCamera.
 
 
+### Cross-Compilation
+
+Open a terminal in any directory on your Ubuntu system.
+
+```
+git clone https://github.com/sophgo/host-tools.git
+```
+
+
+
 ### TinyCC Compilation
 
 Open a terminal in the directory where Deploy_Linux.c is stored.
