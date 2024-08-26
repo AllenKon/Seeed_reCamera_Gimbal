@@ -6,7 +6,6 @@ Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code 
 
 ![reCamera](.\static\reCamera_Gimbal.jpg)
 
-
 ## Gimbal STL
 
 You can download the STL file of this gimbal for 3D printing and assemble it. (Url: https://makerworld.com/zh/models/536713) 
