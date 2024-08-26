@@ -4,28 +4,18 @@
 
 Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code to debug the gimbal motor's operation and status output. We offer program entry points to drive the gimbal motor using RS485 or CAN, enabling precise control and functionality.
 
-![reCamera](https://github.com/AllenKon/Seeed_reCamera_Gimbal/blob/main/reCamera_Deploy/MS_Motor/Pic/recamera(1).jpg)
+![reCamera](.\static\reCamera_Gimbal.jpg)
 
-## Install
 
-```
-pip install -e git+https://github.com/AllenKon/Seeed_reCamera_Gimbal.git#egg=reCamera_Deploy --no-deps
-```
-
-## Gimbal Structure & Assembly
+## Gimbal STL
 
 You can download the STL file of this gimbal for 3D printing and assemble it. (Url: https://makerworld.com/zh/models/536713) 
-
-### Assembly
-
-None.(Waiting to write)
-
 
 ## Instructions for using
 
 ### Motor ID Set
 
-![Connect of Devices](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Connect.png)
+![Connect of Devices](static\Connect.png)
 
 ID changes can be made using MS_Motor/LK motor tool V2.35.exe. Connect the PC (Windows) to the USB-RS485 module, with A, B, and GND of the USB-RS485 module connected to A, B, and V- of the motor. Connect the positive and negative terminals of a 12V power supply to V+ and V- of the motor to enable parameter changes. For further instructions on using LK motor tool V2.35.exe, refer to MS_Motor/Upper_monitor_motor_debuging_instruction.pdf. 
 
@@ -42,46 +32,47 @@ If you want a RS485 Bus Analyzer to debug your RS485 Bus, this [USB-RS485 Analyz
 
 ## Hardware Overview
 
-![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Hardware_Overview.png)
+To enable the reCamera to drive the gimbal motor, the reCamera's base board needs to be replaced to [B4_Gyro](https://github.com/Seeed-Studio/OSHW-reCamera-Series) to enable CAN communication.
 
-The actual internal wiring diagram is as follows.
-
-![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Hardware_Wiring_Overview.png)
+![B4_Gyro_Overview](static\B4_Gyro_overview.png)
 
 You can use the Debugging Port connections to control the motor and communicate with the reCamera via the upper monitor. Alternatively, you can control the motor directly through the reCamera.
 
-![Hardware Overview](https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/Upper_Wiring_Overview.png)
-
 ## Deploy in reCamera
 
-This step requires [TinyCC](https://community.milkv.io/t/tinycc-milkv-duo-c/271) to be installed on reCamera. 
+It is recommended to use **Ubuntu 20.04** to configure this gimbal, as it will be needed for the cross-compilation part. If you don't have Ubuntu 20.04, you can configure [**TinyCC**](https://community.milkv.io/t/tinycc-milkv-duo-c/271) on reCamera.
+
+
+### TinyCC Compilation
 
 Open a terminal in the directory where Deploy_Linux.c is stored.
 
 ```
-scp ./Deploy_Linux.c root@192.168.42.1:~/
+cd ./reCamera_Deploy
+scp ./Deploy_Linux_CAN_Final.c root@192.168.42.1:~/
 ```
 
 ```
 ssh root@192.168.42.1
 ```
+
 The serial port name can be obtained by terminal. It is usually ttyS0.
 
 ```
 ls /dev/ttyS*
 ```
 
-Open Deploy_Linux.c and change the serial port name on line 160. 
+Open Deploy_Linux_CAN_Final.c and change the serial port name on line 160. 
 
 ```
-vi ./Deploy_Linux.c
+vi ./Deploy_Linux_CAN_Final.c
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF4.png" width="500" />
+  <img src="static\TF4.png" width="500" />
 </p>
 
-Compile Deploy_Linux.c and run it.
+Compile Deploy_Linux_CAN_Final and run it.
 
 ```
 cd ~/
@@ -91,8 +82,8 @@ tcc -o test Deploy_Linux.c
 
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF2.png" width="300" />
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF3.png" width="300" />
+  <img src="static\TF2.png" width="300" />
+  <img src="static\TF3.png" width="300" />
 </p>
 
 
@@ -112,7 +103,7 @@ python Deploy_Python.py
 Then just enter the angle (0-360 degrees) for both motors.
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF1.jpg" width="300" />
+  <img src="static\TF1.jpg" width="300" />
 </p>
 
 #### C++
@@ -141,8 +132,8 @@ g++ Deploy_Linux.cpp -o Deploy_Linux
 ```
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF2.png" width="300" />
-  <img src="https://raw.githubusercontent.com/AllenKon/Seeed_Motor_RS485/main/reCamera_Deploy/MS_Motor/Pic/TF3.png" width="300" />
+  <img src="static\TF2.png" width="300" />
+  <img src="static\TF3.png" width="300" />
 </p>
 
 
