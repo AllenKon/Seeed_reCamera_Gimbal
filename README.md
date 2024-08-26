@@ -4,7 +4,7 @@
 
 Welcome to reCamera Gimbal Programmable Development Kit. We provide sample code to debug the gimbal motor's operation and status output. We offer program entry points to drive the gimbal motor using RS485 or CAN, enabling precise control and functionality.
 
-![reCamera](.\static\reCamera_Gimbal.jpg)
+![reCamera](static\reCamera_Gimbal.jpg)
 
 ## Gimbal STL
 
