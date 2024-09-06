@@ -92,6 +92,20 @@ Go back to the Seeed_reCamera_Gimbal directory. Compile Deploy_Linux_CAN_Final.c
 
 ```
 riscv64-unknown-linux-musl-gcc -o Deploy Deploy_Linux_CAN_Final.c
+```
+
+Open a terminal in the directory where Deploy is stored.
+
+```
+scp ./Deploy root@192.168.42.1:~/
+```
+
+```
+ssh root@192.168.42.1
+```
+
+
+```
 ./Deploy
 ```
 
