@@ -47,9 +47,52 @@ It is recommended to use **Ubuntu 20.04** to configure this gimbal, as it will b
 Open a terminal in any directory on your Ubuntu system.
 
 ```
+sudo apt install vim
 git clone https://github.com/sophgo/host-tools.git
 ```
 
+After the download is complete go to the file "/host-tools/gcc/riscv64-linux-musl-x86_64/bin"
+
+<p float="left">
+  <img src="static\path.png" width="800" />
+</p>
+
+Enter "pwd" to see the absolute path and copy it.
+
+```
+pwd
+```
+
+<p float="left">
+  <img src="static\gcc_com.png" width="800" />
+</p>
+
+```
+cd
+vim .bashrc
+```
+
+<p float="left">
+  <img src="static\export_path.png" width="800" />
+</p>
+
+Based on the previous “pwd” command, add the following to the end of the file 
+
+```
+export PATH=$PATH:/home/kong/Downloads/host-tools/gcc/riscv64-linux-musl-x86_64/bin
+```
+
+Click esc and type “:wq” to save the .bashrc.
+
+```
+source .bashrc
+```
+
+Go back to the Seeed_reCamera_Gimbal directory. 
+
+```
+riscv64-unknown-linux-musl-gcc -o Deploy Deploy_Linux_CAN_Final.c
+```
 
 
 ### TinyCC Compilation
