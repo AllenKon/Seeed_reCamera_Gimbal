@@ -88,10 +88,11 @@ Click esc and type “:wq” to save the .bashrc.
 source .bashrc
 ```
 
-Go back to the Seeed_reCamera_Gimbal directory. 
+Go back to the Seeed_reCamera_Gimbal directory. Compile Deploy_Linux_CAN_Final.c and run it.
 
 ```
 riscv64-unknown-linux-musl-gcc -o Deploy Deploy_Linux_CAN_Final.c
+./Deploy
 ```
 
 
