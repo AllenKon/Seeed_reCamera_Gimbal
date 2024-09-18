@@ -106,7 +106,9 @@ ssh root@192.168.42.1
 
 
 ```
-./Deploy
+./Deploy <degree1> <degree2>
+
+Example: ./Deploy 0 0
 ```
 
 
